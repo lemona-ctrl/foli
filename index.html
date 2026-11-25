@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tay - Portfolio</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;700&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+html {
+  background: linear-gradient(to bottom, #E6FBDA 0%, #E6FBDA 55%, #C5E3B7 100%) no-repeat;
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0C2D45;
+}
+	
+a { color: #3E5BA3; }
+h1, h2, h3, .serif { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; margin: 0; }
+p { margin: 0 0 10px; }
+ 
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.small { font-size: 11px; }
+.caps  { font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; }
+.kicker { font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: #3E5BA3; margin-bottom: 10px; }
+.only-mobile { display: none; }
+ 
+header { padding: 14px 0 12px; }
+	.sub-page header { border-bottom: 1px solid rgba(12, 45, 69, 0.15); }
+	.head { display: grid; 
+		grid-template-columns: 20% 1fr auto; 
+		align-items: center; 
+	}
+	.logo { font-family: "Cormorant Garamond", Georgia, serif; 
+		font-style: italic; 
+		font-size: 24px;
+		color: #3E5BA3; 
+		text-decoration: none;
+	}
+	.tagline { font-size: 9px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+ 
+nav { display: flex; gap: 8px; }
+nav a { color: #0C2D45;
+	text-decoration: none;
+	padding: 6px 14px;
+	border-radius: 20px;
+	font-size: 13px;
+	}
+nav a:hover { background: rgba(132, 209, 117, 0.5); }
+nav a.active { background: #FFF8D2;
+	color: #3E5BA3;
+	} 
+ 
+.page-title { padding: 28px 0 22px; }
+.page-title h1 { font-size: 54px;
+	line-height: 1.05;
+	margin-bottom: 14px;
+	}
+.page-title p { font-size: 12px;
+	margin: 0;
+	}
+ 
+.frame { position: relative;
+	overflow: hidden;
+	color: #fff;
+	font-size: 11px;
+	}
+.frame img { position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	}
+.land  { aspect-ratio: 1.37 / 1;
+	background: #6B2D05; }
+.tall  { aspect-ratio: 5 / 7;
+	background: #3E5BA3; }
+.photo { aspect-ratio: 0.72 / 1;
+	background: #C26A00; }
+ 
+.caption { display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-top: 8px;
+	}
+.caption.t { font-family: "Cormorant Garamond", Georgia, serif;
+	font-size: 19px;
+	line-height: 1.2;
+	}
+.caption small { display: block;
+	font-size: 10px;
+	font-family: "DM Sans", Arial, sans-serif;
+	}
+.caption .arrow { text-decoration: none;
+	font-size: 12px;
+	color: #0C2D45; 
+	}
+.tiny-cap { font-size: 10px;
+	margin-top: 6px;
+	}
+ 
+.banner { position: relative;
+	aspect-ratio: 2.9 / 1;
+	background: #1b1f1a;
+	border-radius: 3px;
+	overflow: hidden;
+	margin: 6px 0 26px;
+	}
+.banner img { position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	}
+.banner .text { position: absolute; inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	}
+.banner .script { font-family: "Dancing Script", cursive;
+	font-size: 80px;
+	line-height: 1.1; 
+	}
+.banner small { font-size: 8px;
+	margin-top: 4px; 
+	}
+ 
+.intro { display: grid;
+	grid-template-columns: 41% 1fr;
+	row-gap: 18px;
+	}
+.intro h1 { font-size: 34px; }
+.intro .blurb { font-size: 12px; max-width: 360px; }
+.intro .blurb a { font-size: 11px; }
+hr { border: 0;
+	border-top: 1px solid rgba(12, 45, 69, 0.2);
+	margin: 26px 0; 
+	}
+.gallery h2 { font-size: 30px;
+	margin-bottom: 4px; 
+	}
+.gallery .sub { font-size: 11px;
+	margin-bottom: 20px;
+	}
+ 
+.grid3 { display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 14px; }
+.grid4 { display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px; }
+ 
+.work-grid { display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 22px 16px;
+	}
+.w3 { grid-column: span 3; }
+.w2 { grid-column: span 2; }
+.work-grid .frame { background: #5C7050; }
+.r1 { aspect-ratio: 1.8 / 1;
+	}
+.r2 { aspect-ratio: 1.45 / 1;
+	}
+.vlink { position: absolute;
+	inset: 0; display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	text-decoration: none;
+	font-size: 11px;
+	}
+.frame iframe { position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	}
+ 
+.grid4 .caption { margin-top: 6px; }
+.grid4 .caption small { font-size: 9px; }
+ 
+.about { display: grid;
+	grid-template-columns: 36% 1fr;
+	gap: 20px;
+	align-items: start;
+	}
+	
+.formbox { background: linear-gradient(to bottom, #FFF8D2 85%, #F2F3C9 100%);
+	padding: 24px 22px 28px;
+	border-radius: 2px;
+	}
+	
+.formbox h2 { font-size: 24px;
+	line-height: 1.2;
+	margin-bottom: 8px;
+	max-width: 300px;
+	}
+.formbox .sub { font-size: 10px;
+	margin-bottom: 4px;
+	}
+label { display: block;
+	font-size: 9px;
+	margin: 14px 0 4px;
+	}
+input, textarea { width: 100%;
+	padding: 7px 8px;
+	border: 1px solid #c9d3b4;
+	background: #fffef6;
+	font: inherit;
+	font-size: 10px;
+	color: #0C2D45; }
+textarea { min-height: 62px;
+	resize: vertical;
+	}
+.row { display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+	}
+.row label { margin-top: 10px; }
+	
+button.send { margin-top: 18px; padding: 8px 20px;
+	border: 0; border-radius: 20px;
+	background: #84D175;
+	color: #0C2D45;
+	font: inherit;
+	font-size: 10px;
+	}
+button.send:hover { background: #6fc15f;}
+ 
+footer { margin-top: 30px;
+	border-top: 1px solid rgba(12, 45, 69, 0.2);
+	padding: 18px 0 34px;
+	}
+.foot-grid { display: grid;
+	grid-template-columns: 70% 1fr;
+	font-size: 10px;
+	}
+.foot-grid .brand { color: #3E5BA3;
+	}
+.foot-grid a { text-decoration: none;
+	}
+footer .caps { font-size: 8px;
+	display: block;
+	margin-top: 6px;
+	}
+ 
+.modal { display: none;
+	position: fixed;
+	inset: 0; background: rgba(12, 45, 69, 0.55);
+	z-index: 10; align-items: center;
+	justify-content: center;
+	padding: 16px;
+	}
+	
+.modal.open { display: flex; }
+	
+.modal-box { background: linear-gradient(to bottom, #FFF8D2 55%, #EDE5B4 100%);
+	border-radius: 3px;
+	width: 100%;
+	max-width: 980px;
+	max-height: 94vh;
+	overflow: auto;
+	padding: 14px 14px 18px;
+	}
+.modal-top { display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	}
+.modal-top .kicker { margin: 0;
+	color: #0C2D45; 
+	font-size: 8px; 
+	}
+.modal-close { border: 0;
+	background: #84D175;
+	color: #0C2D45;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	font-size: 13px;
+	line-height: 20px;
+	padding: 0;
+	}
+.modal-body { display: grid;
+	grid-template-columns: 1.7fr 1fr;
+	gap: 22px;
+	}
+.pop-img { aspect-ratio: 1 / 1;
+	background: #6B2D05; 
+	}
+.modal-info { display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding-top: 4px;
+	}
+	
+.modal-info h2 { font-size: 30px;
+	line-height: 1.1;
+	}
+.modal-info .sub { font-size: 9px;
+	margin: 0;
+	}
+.modal-info .desc { font-size: 11px; }
+	
+.modal-info .foot { margin: auto 0 0;
+	font-size: 9px;
+	}
+ 
+@media (max-width: 700px) {
+  .wrap { padding: 0 14px; }
+  .only-mobile { display: block; }
+  .only-desktop { display: none; }
+ 
+  .head { grid-template-columns: 1fr auto;
+	  row-gap: 12px;
+	}
+  .tagline { text-align: right;
+	  font-size: 8px;
+	}
+  nav { grid-column: 1 / -1;
+	  justify-content: space-between;
+	  gap: 2px;
+	}
+  nav a { padding: 5px 8px;
+	  font-size: 10px;
+	}
+ 
+  .page-title { padding: 20px 0 16px; }
+  .page-title h1 { font-size: 34px;
+	}
+ 
+  .banner { aspect-ratio: 1 / 1;
+	  background: #D9D9D9;
+	  margin-top: 12px;
+	}
+  .banner .text { display: none; 
+	}
+ 
+  .intro { grid-template-columns: 1fr;
+	  row-gap: 10px;
+	}
+  .intro h1 { font-size: 24px;}
+	
+  .gallery h2 { font-size: 24px; }
+	
+  .grid3, .grid4 { grid-template-columns: repeat(2, 1fr);}
+	
+  .caption.t { font-size: 15px; }
+ 
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-grid .v { grid-column: span 2; }
+  .work-grid .i { grid-column: span 1; }
+  .r1, .r2.v { aspect-ratio: 1.8 / 1; }
+  .r2.i { aspect-ratio: 5 / 6; }
+ 
+  .about { grid-template-columns: 1fr; }
+  .photo { aspect-ratio: 1 / 1.1; }
+  .formbox { padding: 18px 14px 22px; }
+  .row { grid-template-columns: 1fr; gap: 0; }
+ 
+  .foot-grid { grid-template-columns: 1fr; }
+  .foot-grid a { display: none; }
+ 
+  .modal-body { grid-template-columns: 1fr;
+	  gap: 14px; }
+  .pop-img { aspect-ratio: 1 / 1; }
+  .modal-info h2 { font-size: 24px; }
+  .modal-info .foot { margin-top: 10px; }
+}
+ 
+.page { display: none; }
+.page.current { display: block; }
+ 
+</style>
+</head>
+<body>
+ 
+<header>
+  <div class="wrap head">
+    <a class="logo" href="#home">Tay</a>
+    <span class="tagline">Graphic design &amp; animation</span>
+    <nav>
+      <a href="#home" data-page="home">Home</a>
+      <a href="#work" data-page="work">Professional Work</a>
+      <a href="#studies" data-page="studies">Life Studies</a>
+      <a href="#about" data-page="about">About</a>
+    </nav>
+  </div>
+</header>
+ 
+<section class="page current" id="home">
+<div class="wrap">
+ 
+  <div class="banner">
+    <img src="banner.jpg" alt="banner.jpg">
+    <div class="text">
+      <span class="script">My Portfolio</span>
+      <small>From me to you.</small>
+    </div>
+  </div>
+ 
+  <div class="intro">
+    <h1 class="serif">Hi, I'm Tay.</h1>
+    <div class="blurb">
+      <p>I'm a Graphic designer and Animator who loves to work on the nitty gritty details.</p>
+      <p><a href="#about">Want to work with me? Let's chat!</a></p>
+    </div>
+    <span class="caps">Graphic design &amp; animation</span>
+  </div>
+ 
+  <hr>
+ 
+  <section class="gallery">
+    <h2 class="only-desktop">A peek into my work</h2>
+    <h2 class="only-mobile">Selected illustrations</h2>
+    <p class="sub">A few favorites from the years. Click to take a closer look.</p>
+    <div class="grid3">
+      <div>
+        <a href="#" class="popup" data-img="Illus1.jpg" data-title="Lotoria Vegas" data-sub="Las Vegas themed deck">
+          <div class="frame land">
+			  <img src="Illus1.jpg" alt="Illus1.jpg"></div>
+        </a>
+        <div class="caption"><div>
+			<span class="t">Lotoria Vegas</span>
+				<small>Las Vegas themed deck</small>
+			</div><span class="arrow">&#8599;</span></div>
+      </div>
+      <div>
+        <a href="#" class="popup" data-img="Illus2.jpg" data-title="Las Vegas Birds" data-sub="UNLV Bird watching club stickers">
+          <div class="frame land">
+			  <img src="Illus2.jpg" alt="Illus2.jpg"></div>
+        </a>
+        <div class="caption"><div>
+			<span class="t">Las Vegas Birds</span>
+			<small>UNLV Bird watching club stickers</small>
+				</div><span class="arrow">&#8599;</span></div>
+      </div>
+      <div>
+        <a href="#" class="popup" data-img="Illus3.jpg" data-title="25 Years of Lied" data-sub="UNLV Lied librarian T-shirt">
+          <div class="frame land">
+			  <img src="Illus3.jpg" alt="Illus3.jpg"></div>
+        </a>
+        <div class="caption"><div>
+			<span class="t">25 Years of Lied</span>
+			<small>UNLV Lied librarian T-shirt</small></div>
+			<span class="arrow">&#8599;</span></div>
+      </div>
+      <div>
+        <a href="#" class="popup" data-img="Illus4.jpg" data-title="Lofi Study Lounge" data-sub="UNLV Study Event">
+          <div class="frame land">
+			  <img src="Illus4.jpg" alt="Illus4.jpg"></div>
+        </a>
+        <div class="caption">
+			<div><span class="t">Lofi Study Lounge</span>
+				<small>UNLV Study Event</small>
+			</div><span class="arrow">&#8599;</span></div>
+      </div>
+      <div>
+        <a href="#" class="popup" data-img="Illus5.jpg" data-title="It's Alive" data-sub="DIY Slime Event">
+          <div class="frame land">
+			  <img src="Illus5.jpg" alt="Illus5.jpg"></div>
+        </a>
+        <div class="caption"><div>
+			<span class="t">It's Alive</span>
+			<small>DIY Slime Event</small></div><span class="arrow">&#8599;</span></div>
+      </div>
+      <div>
+        <a href="#" class="popup" data-img="Illus6.jpg" data-title="Back Alley Bookfair" data-sub="Banned Books Event">
+          <div class="frame land">
+			  <img src="Illus6.jpg" alt="Illus6.jpg"></div>
+        </a>
+        <div class="caption"><div>
+			<span class="t">Back Alley Bookfair</span>
+			<small>Banned Books Event</small>
+			</div><span class="arrow">&#8599;</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+</section>
+ 
+<section class="page" id="work">
+<div class="wrap">
+ 
+  <div class="page-title">
+    <div class="kicker">01 / Selected projects</div>
+    <h1 class="serif only-desktop">Professional Spotlight</h1>
+    <h1 class="serif only-mobile">Professional work</h1>
+    <p>Various contract works and commissions, all done within the last year or two.</p>
+  </div>
+ 
+    <div class="work-grid">
+    <div class="w3 v">
+      <div class="frame r1 vid">
+        <a class="vlink" href="https://www.youtube.com/shorts/_yJMp9YpmsU" target="_blank">Video 1 youtube link</a>
+      </div>
+      <div class="caption"><div><span class="t">New god</span>
+		  <small>Procreate Dreams - Animated short</small>
+		  </div><span class="arrow">&#8599;</span>
+		</div>
+    </div>
+    <div class="w3 v">
+      <div class="frame r1 vid">
+        <a class="vlink" href="https://youtu.be/wM8FZWwGiDw" target="_blank">Video 2 youtube link</a>
+      </div>
+      <div class="caption"><div>
+		  <span class="t">Walk Away</span>
+		  <small>After Effects - Animated Short</small>
+		  </div><span class="arrow">&#8599;</span>
+		</div>
+    </div>
+    <div class="w2 v">
+      <div class="frame r2 vid">
+        <a class="vlink" href="https://youtu.be/zmgzC1JcR6k" target="_blank">Video 3 youtube link</a>
+      </div>
+      <div class="caption"><div>
+		  <span class="t">Stardust</span>
+		  <small>Procreate Dreams - Motion study</small>
+		  </div><span class="arrow">&#8599;</span>
+		</div>
+    </div>
+    <div class="w2 i">
+      <a href="#" class="popup" data-img="illm1.jpg" data-title="Wedding" data-sub="Illustration">
+        <div class="frame r2 ill"><img src="illm1.jpg" alt="illm1.jpg"></div>
+      </a>
+      <div class="caption"><div>
+		  <span class="t">Wedding</span>
+		  <small>Illustration</small>
+		  </div><span class="arrow">&#8599;</span>
+		</div>
+    </div>
+    <div class="w2 i">
+      <a href="#" class="popup" 
+		 data-img="illm2.jpg" 
+		 data-title="Paws n Relax" 
+		 data-sub="Illustration">
+        <div class="frame r2 ill">
+			<img src="illm2.jpg" alt="illm2.jpg">
+		  </div>
+      </a>
+      <div class="caption"><div>
+		  <span class="t">Paws n Relax</span>
+		  <small>Illustration</small>
+		  </div><span class="arrow">&#8599;</span>
+		</div>
+    </div>
+  </div>
+</div>
+</section>
+ 
+<section class="page" id="studies">
+<div class="wrap">
+ 
+  <div class="page-title">
+    <div class="kicker">02 / Observational drawing</div>
+    <h1 class="serif">Life Studies</h1>
+    <p>Life studies of various lengths, non sexual nudity ahead.</p>
+  </div>
+ 
+  <div class="grid4">
+    <div><div class="frame tall">
+		<img src="life1.jpg" alt="life1.jpg">
+		</div><div class="caption">
+		<small>01 / Long - 120 min</small>
+		</div>
+		
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life2.jpg" alt="life2.jpg"></div>
+		<div class="caption">
+			<small>02 / Long - 120 min</small>
+		</div>
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life3.jpg" alt="life3.jpg"></div>
+		<div class="caption">
+			<small>03 / Long - 120 min</small>
+		</div>
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life4.jpg" alt="life4.jpg">
+		</div>
+		
+		<div class="caption">
+		<small>04 / Stood - 15 min</small>
+		</div>
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life5.jpg" alt="life5.jpg">
+		</div>
+		<div class="caption">
+			<small>05 / Gesture - 1 min</small>
+		</div>
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life6.jpg" alt="life6.jpg">
+		</div><div class="caption">
+		<small>06 / Long - 120 min</small>
+		</div>
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life7.jpg" alt="life7.jpg">
+		</div><div class="caption">
+		<small>07 / Stood - 15 min</small>
+		</div>
+	  </div>
+	  
+    <div>
+		<div class="frame tall">
+			<img src="life8.jpg" alt="life8.jpg">
+		</div>
+		
+		<div class="caption">
+			<small>08 / Reclining - 30 min</small>
+		</div>
+	  </div>
+  </div>
+</div>
+	
+</section>
+ 
+<section class="page" id="about">
+<div class="wrap">
+ 
+  <div class="page-title">
+    <div class="kicker">03 / Say hello</div>
+    <h1 class="serif">Let's Chat</h1>
+  </div>
+ 
+  <div class="about">
+    <div>
+      <div class="frame photo">
+		  <img src="tay.jpg" alt="tay.jpg">
+		</div>
+      <p class="tiny-cap">peekaboo</p>
+    </div>
+ 
+    <div class="formbox">
+      <h2>I'm open to work, tell me a bit about yourself</h2>
+      <p class="sub">Have an idea, a commission, or just a hello?</p>
+ 
+            <form action="mailto:you@example.com" method="post" enctype="text/plain">
+        <div class="row">
+          <div>
+            <label for="name">Your name *</label>
+			  
+            <input type="text" id="name" name="name" placeholder="Name" required>
+          </div>
+			
+          <div>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+			
+        </div>
+ 
+        <label for="project">Project</label>
+        <input type="text" id="project" name="project" placeholder="What are you thinking?">
+ 
+        <label for="more">Tell me more </label>
+        <textarea id="more" name="more" placeholder="A little about your idea, timeline, budget, and anything else I should know." required></textarea>
+ 
+        <button class="send" type="submit">Send message &#8599;</button>
+		  
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+ 
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+		<span class="brand">Tay / Portfolio</span>
+		<span class="caps">Graphic design &amp; animation</span>
+	  </div>
+	  
+    <a href="#about">Let's chat! &#8599;</a>
+	  
+  </div>
+</footer>
+ 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(function () {
+ 
+    function showPage(page) {
+    if ($("#" + page).length === 0) { page = "home"; }
+    $(".page").removeClass("current");
+    $("#" + page).addClass("current");
+ 
+    $("nav a").removeClass("active");
+    $('nav a[data-page="' + page + '"]').addClass("active");
+ 
+    $("body").toggleClass("sub-page", page !== "home");
+    $(window).scrollTop(0);
+  }
+ 
+  $(window).on("hashchange", function () { showPage(location.hash.slice(1)); });
+  showPage(location.hash.slice(1));
+ 
+    $("body").append(
+    '<div class="modal" id="modal">' +
+      '<div class="modal-box">' +
+        '<div class="modal-top">' +
+          '<span class="kicker" id="m-kicker"></span>' +
+          '<button class="modal-close" aria-label="Close">&times;</button>' +
+        '</div>' +
+        '<div class="modal-body">' +
+          '<div class="frame pop-img"><img id="m-img" src="" alt=""></div>' +
+          '<div class="modal-info">' +
+            '<h2 id="m-title"></h2>' +
+            '<p class="sub" id="m-sub"></p>' +
+            '<p class="foot">Graphic design &amp; animation</p>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  );
+ 
+  $(".popup").click(function (e) {
+    e.preventDefault();
+    var n = $(this).closest(".page").find(".popup").index(this) + 1;
+    var img = $(this).data("img");
+    $("#m-kicker").text("Closer look / 0" + n);
+    $("#m-img").attr("src", img).attr("alt", img);
+    $("#m-title").text($(this).data("title"));
+    $("#m-sub").text($(this).data("sub"));
+    $("#modal").addClass("open");
+  });
+ 
+  function closeModal() { $("#modal").removeClass("open"); }
+  $(".modal-close").click(closeModal);
+  $("#modal").click(function (e) { if (e.target === this) { closeModal(); } });
+  $(document).keydown(function (e) { if (e.key === "Escape") { closeModal(); } });
+});
+</script>
+</body>
+</html>
